@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\Calibration">
+      <UniqueIdentifier>{6890dc9c-222e-426b-add2-f0578b1228be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\CamDev">
+      <UniqueIdentifier>{c753e641-869b-48c6-a684-34070599ed4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GLSL">
+      <UniqueIdentifier>{466cb0dc-5cfd-4af8-8978-a77e21466b22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\HoughFerns">
+      <UniqueIdentifier>{84d4a2ad-20ce-4206-8212-e61eaf684ade}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\LSM">
+      <UniqueIdentifier>{ba48a182-6ccd-4ff3-8047-977d2033e23a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Calibration">
+      <UniqueIdentifier>{49b5e1a7-26b2-42ec-91d9-6eb6bce35dc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\CamDev">
+      <UniqueIdentifier>{d590dc19-46cc-4f35-a650-63501adf673d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GLSL">
+      <UniqueIdentifier>{0c9d4b3e-523f-4e19-89fb-7f30f5b0fa5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\HoughFerns">
+      <UniqueIdentifier>{6b6bc51a-ebf3-4dcb-853a-30d316c619d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\LSM">
+      <UniqueIdentifier>{3302d7b3-3d1c-4696-b3e0-a916efd7d434}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Calibration\Calibration.cpp">
+      <Filter>ソース ファイル\Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="Calibration\Graycode.cpp">
+      <Filter>ソース ファイル\Calibration</Filter>
+    </ClCompile>
+    <ClCompile Include="CamDev\UndistortedCamera.cpp">
+      <Filter>ソース ファイル\CamDev</Filter>
+    </ClCompile>
+    <ClCompile Include="CamDev\WebCamera.cpp">
+      <Filter>ソース ファイル\CamDev</Filter>
+    </ClCompile>
+    <ClCompile Include="CamDev\CameraDevice.cpp">
+      <Filter>ソース ファイル\CamDev</Filter>
+    </ClCompile>
+    <ClCompile Include="CamDev\CameraLinkCamera.cpp">
+      <Filter>ソース ファイル\CamDev</Filter>
+    </ClCompile>
+    <ClCompile Include="GLSL\glsl_setup.cpp">
+      <Filter>ソース ファイル\GLSL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLSL\image_rect.cpp">
+      <Filter>ソース ファイル\GLSL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLSL\mesh.cpp">
+      <Filter>ソース ファイル\GLSL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLSL\offscreenRender.cpp">
+      <Filter>ソース ファイル\GLSL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLSL\primitive.cpp">
+      <Filter>ソース ファイル\GLSL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLSL\tessellatedSphere.cpp">
+      <Filter>ソース ファイル\GLSL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLSL\texture.cpp">
+      <Filter>ソース ファイル\GLSL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLSL\background.cpp">
+      <Filter>ソース ファイル\GLSL</Filter>
+    </ClCompile>
+    <ClCompile Include="HoughFerns\FirstLayerFern.cpp">
+      <Filter>ソース ファイル\HoughFerns</Filter>
+    </ClCompile>
+    <ClCompile Include="HoughFerns\HoughFerns.cpp">
+      <Filter>ソース ファイル\HoughFerns</Filter>
+    </ClCompile>
+    <ClCompile Include="HoughFerns\P-COF.cpp">
+      <Filter>ソース ファイル\HoughFerns</Filter>
+    </ClCompile>
+    <ClCompile Include="HoughFerns\SecondLayerFern.cpp">
+      <Filter>ソース ファイル\HoughFerns</Filter>
+    </ClCompile>
+    <ClCompile Include="LSM\LeastSquaresMethod.cpp">
+      <Filter>ソース ファイル\LSM</Filter>
+    </ClCompile>
+    <ClCompile Include="LSM\LeastSquaresMethodQuadratic.cpp">
+      <Filter>ソース ファイル\LSM</Filter>
+    </ClCompile>
+    <ClCompile Include="LSM\LSMPoint3f.cpp">
+      <Filter>ソース ファイル\LSM</Filter>
+    </ClCompile>
+    <ClCompile Include="LSM\LSMQuatd.cpp">
+      <Filter>ソース ファイル\LSM</Filter>
+    </ClCompile>
+    <ClCompile Include="Main_thread.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Projection_thread.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Tracking_thread.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Detection_thread.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Calibration\Calibration.h">
+      <Filter>ヘッダー ファイル\Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="Calibration\Graycode.h">
+      <Filter>ヘッダー ファイル\Calibration</Filter>
+    </ClInclude>
+    <ClInclude Include="CamDev\UndistortedCamera.h">
+      <Filter>ヘッダー ファイル\CamDev</Filter>
+    </ClInclude>
+    <ClInclude Include="CamDev\WebCamera.h">
+      <Filter>ヘッダー ファイル\CamDev</Filter>
+    </ClInclude>
+    <ClInclude Include="CamDev\CameraDevice.h">
+      <Filter>ヘッダー ファイル\CamDev</Filter>
+    </ClInclude>
+    <ClInclude Include="CamDev\CameraLinkCamera.h">
+      <Filter>ヘッダー ファイル\CamDev</Filter>
+    </ClInclude>
+    <ClInclude Include="GLSL\primitive.h">
+      <Filter>ヘッダー ファイル\GLSL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLSL\tessellatedSphere.h">
+      <Filter>ヘッダー ファイル\GLSL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLSL\texture.h">
+      <Filter>ヘッダー ファイル\GLSL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLSL\window.h">
+      <Filter>ヘッダー ファイル\GLSL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLSL\background.h">
+      <Filter>ヘッダー ファイル\GLSL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLSL\camera.h">
+      <Filter>ヘッダー ファイル\GLSL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLSL\glsl_setup.h">
+      <Filter>ヘッダー ファイル\GLSL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLSL\image_rect.h">
+      <Filter>ヘッダー ファイル\GLSL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLSL\mesh.h">
+      <Filter>ヘッダー ファイル\GLSL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLSL\myTimer.h">
+      <Filter>ヘッダー ファイル\GLSL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLSL\offscreenRender.h">
+      <Filter>ヘッダー ファイル\GLSL</Filter>
+    </ClInclude>
+    <ClInclude Include="HoughFerns\P-COF.h">
+      <Filter>ヘッダー ファイル\HoughFerns</Filter>
+    </ClInclude>
+    <ClInclude Include="HoughFerns\sample.h">
+      <Filter>ヘッダー ファイル\HoughFerns</Filter>
+    </ClInclude>
+    <ClInclude Include="HoughFerns\SecondLayerFern.h">
+      <Filter>ヘッダー ファイル\HoughFerns</Filter>
+    </ClInclude>
+    <ClInclude Include="HoughFerns\FirstLayerFern.h">
+      <Filter>ヘッダー ファイル\HoughFerns</Filter>
+    </ClInclude>
+    <ClInclude Include="HoughFerns\HoughFerns.h">
+      <Filter>ヘッダー ファイル\HoughFerns</Filter>
+    </ClInclude>
+    <ClInclude Include="LSM\LeastSquaresMethodQuadratic.h">
+      <Filter>ヘッダー ファイル\LSM</Filter>
+    </ClInclude>
+    <ClInclude Include="LSM\LSMPoint3f.h">
+      <Filter>ヘッダー ファイル\LSM</Filter>
+    </ClInclude>
+    <ClInclude Include="LSM\LSMQuatd.h">
+      <Filter>ヘッダー ファイル\LSM</Filter>
+    </ClInclude>
+    <ClInclude Include="LSM\LeastSquaresMethod.h">
+      <Filter>ヘッダー ファイル\LSM</Filter>
+    </ClInclude>
+    <ClInclude Include="Detection_thread.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Main_thread.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Projection_thread.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Tracking_thread.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CriticalSection.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Shader\normal_view.vert">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\..\Shader\point.frag">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\..\Shader\point.vert">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\..\Shader\shading.frag">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\..\Shader\shading.vert">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\..\Shader\shading_tex.frag">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\..\Shader\shading_tex.vert">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\..\Shader\wired.frag">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\..\Shader\wired.vert">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\..\Shader\background.frag">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\..\Shader\background.vert">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\..\Shader\diffgauss.frag">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\..\Shader\diffgauss.vert">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\..\Shader\edge.frag">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\..\Shader\edge.vert">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\..\Shader\image_rect.frag">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\..\Shader\image_rect.vert">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\..\Shader\normal_view.frag">
+      <Filter>リソース ファイル</Filter>
+    </None>
+  </ItemGroup>
+</Project>

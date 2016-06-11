@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Calibration\Calibration.cpp" />
+    <ClCompile Include="Calibration\Graycode.cpp" />
+    <ClCompile Include="CamDev\CameraDevice.cpp" />
+    <ClCompile Include="CamDev\CameraLinkCamera.cpp" />
+    <ClCompile Include="CamDev\UndistortedCamera.cpp" />
+    <ClCompile Include="CamDev\WebCamera.cpp" />
+    <ClCompile Include="Detection_thread.cpp" />
+    <ClCompile Include="GLSL\background.cpp" />
+    <ClCompile Include="GLSL\glsl_setup.cpp" />
+    <ClCompile Include="GLSL\image_rect.cpp" />
+    <ClCompile Include="GLSL\mesh.cpp" />
+    <ClCompile Include="GLSL\offscreenRender.cpp" />
+    <ClCompile Include="GLSL\primitive.cpp" />
+    <ClCompile Include="GLSL\tessellatedSphere.cpp" />
+    <ClCompile Include="GLSL\texture.cpp" />
+    <ClCompile Include="HoughFerns\FirstLayerFern.cpp" />
+    <ClCompile Include="HoughFerns\HoughFerns.cpp" />
+    <ClCompile Include="HoughFerns\P-COF.cpp" />
+    <ClCompile Include="HoughFerns\SecondLayerFern.cpp" />
+    <ClCompile Include="LSM\LeastSquaresMethod.cpp" />
+    <ClCompile Include="LSM\LeastSquaresMethodQuadratic.cpp" />
+    <ClCompile Include="LSM\LSMPoint3f.cpp" />
+    <ClCompile Include="LSM\LSMQuatd.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Main_thread.cpp" />
+    <ClCompile Include="Projection_thread.cpp" />
+    <ClCompile Include="Tracking_thread.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Calibration\Calibration.h" />
+    <ClInclude Include="Calibration\Graycode.h" />
+    <ClInclude Include="CamDev\CameraDevice.h" />
+    <ClInclude Include="CamDev\CameraLinkCamera.h" />
+    <ClInclude Include="CamDev\UndistortedCamera.h" />
+    <ClInclude Include="CamDev\WebCamera.h" />
+    <ClInclude Include="CriticalSection.h" />
+    <ClInclude Include="Detection_thread.h" />
+    <ClInclude Include="GLSL\background.h" />
+    <ClInclude Include="GLSL\camera.h" />
+    <ClInclude Include="GLSL\glsl_setup.h" />
+    <ClInclude Include="GLSL\image_rect.h" />
+    <ClInclude Include="GLSL\mesh.h" />
+    <ClInclude Include="GLSL\myTimer.h" />
+    <ClInclude Include="GLSL\offscreenRender.h" />
+    <ClInclude Include="GLSL\primitive.h" />
+    <ClInclude Include="GLSL\tessellatedSphere.h" />
+    <ClInclude Include="GLSL\texture.h" />
+    <ClInclude Include="GLSL\window.h" />
+    <ClInclude Include="HoughFerns\FirstLayerFern.h" />
+    <ClInclude Include="HoughFerns\HoughFerns.h" />
+    <ClInclude Include="HoughFerns\P-COF.h" />
+    <ClInclude Include="HoughFerns\sample.h" />
+    <ClInclude Include="HoughFerns\SecondLayerFern.h" />
+    <ClInclude Include="LSM\LeastSquaresMethod.h" />
+    <ClInclude Include="LSM\LeastSquaresMethodQuadratic.h" />
+    <ClInclude Include="LSM\LSMPoint3f.h" />
+    <ClInclude Include="LSM\LSMQuatd.h" />
+    <ClInclude Include="Main_thread.h" />
+    <ClInclude Include="Projection_thread.h" />
+    <ClInclude Include="Tracking_thread.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Shader\background.frag" />
+    <None Include="..\..\Shader\background.vert" />
+    <None Include="..\..\Shader\diffgauss.frag" />
+    <None Include="..\..\Shader\diffgauss.vert" />
+    <None Include="..\..\Shader\edge.frag" />
+    <None Include="..\..\Shader\edge.vert" />
+    <None Include="..\..\Shader\image_rect.frag" />
+    <None Include="..\..\Shader\image_rect.vert" />
+    <None Include="..\..\Shader\normal_view.frag" />
+    <None Include="..\..\Shader\normal_view.vert" />
+    <None Include="..\..\Shader\point.frag" />
+    <None Include="..\..\Shader\point.vert" />
+    <None Include="..\..\Shader\shading.frag" />
+    <None Include="..\..\Shader\shading.vert" />
+    <None Include="..\..\Shader\shading_tex.frag" />
+    <None Include="..\..\Shader\shading_tex.vert" />
+    <None Include="..\..\Shader\wired.frag" />
+    <None Include="..\..\Shader\wired.vert" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CB14E9AA-0BD2-4CFE-BDFD-ED9174290899}</ProjectGuid>
+    <RootNamespace>DynamicSAR</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)\..\exe\DynamicSAR\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
