@@ -200,12 +200,15 @@ bool Mesh::initMaterials(const aiScene* pScene, const std::string& Filename)
 
     bool Ret = true;
 
+	m_originalTextures.clear();
+
     // マテリアルの初期化
     for (unsigned int i = 0 ; i < pScene->mNumMaterials ; i++) 
 	{
         const aiMaterial* pMaterial = pScene->mMaterials[i];
 
         m_Textures[i] = NULL;
+		m_originalTextures.clear();
 
         if (pMaterial->GetTextureCount(aiTextureType_DIFFUSE) > 0) 
 		{
@@ -227,6 +230,7 @@ bool Mesh::initMaterials(const aiScene* pScene, const std::string& Filename)
                 else 
 				{
                     printf("Loaded texture '%s'\n", FullPath.c_str());
+					m_originalTextures.emplace_back(m_Textures[i]->m_image.clone()); //保持用
                 }
             }
         }
@@ -325,4 +329,18 @@ void Mesh::vertex_render()
     glDisableVertexAttribArray(0);
     glDisableVertexAttribArray(1);
     glDisableVertexAttribArray(2);
+}
+
+//動画再生用
+void Mesh::exChangeTexture(int model_id, cv::Mat m_image)
+{
+	const unsigned int MaterialIndex = m_Entries[model_id].MaterialIndex;
+	m_Textures[MaterialIndex]->updateFromMat(GL_TEXTURE_2D, m_image);
+}
+
+//デフォルトのテクスチャに戻す
+void Mesh::setDefaultTexture(int model_id)
+{
+	const unsigned int MaterialIndex = m_Entries[model_id].MaterialIndex;
+	m_Textures[MaterialIndex]->updateFromMat(GL_TEXTURE_2D, m_originalTextures[model_id]);
 }

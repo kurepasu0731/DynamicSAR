@@ -52,6 +52,12 @@ public:
 
 	// 頂点のみレンダリング
 	void vertex_render();
+	
+	//動画再生用:テクスチャ画像の更新
+	void exChangeTexture(int model_id, cv::Mat m_image);
+
+	//デフォルトのテクスチャに戻す
+	void setDefaultTexture(int model_id);
 
 private:
     bool initFromScene(const aiScene* pScene, const std::string& Filename);
@@ -75,6 +81,8 @@ private:
 
     std::vector<MeshEntry> m_Entries;	// オブジェクトのメッシュデータ
     std::vector<Texture*> m_Textures;	// オブジェクトのテクスチャデータ
+
+    std::vector<cv::Mat> m_originalTextures;	// オブジェクトの初期テクスチャデータ(保持用)
 };
 
 

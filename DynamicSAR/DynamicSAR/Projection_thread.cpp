@@ -87,6 +87,30 @@ void ProjectionThread::init(const std::string& modelFile)
 void ProjectionThread::display()
 {
 
+	//*****↓動画再生処理↓******//
+	if( capture.isOpened() && critical_section->movie_flag)
+	{
+		// 動画テクスチャ更新
+		updateMovieTexture();
+		//テクスチャの更新
+		exChangeTexture(modelID, movie_image);
+
+		original_fixed_flag = false;
+	}
+	//動画再生しない、かつまだオリジナルのテクスチャに戻ってなかったら
+	else if(!critical_section->movie_flag && !original_fixed_flag)
+	{
+		setDefaultTexture(modelID);
+		original_fixed_flag = true;
+	}
+	//新しいファイルを指定して再読み込みしたい場合
+	if(critical_section->reloadMovie_flag)
+	{
+		reloadMovie();
+		critical_section->reloadMovie_flag = false;
+	}
+	//*****↑動画再生処理↑******//
+
 	///// グレイコード投影 /////
 	if (critical_section->graycode_flag)
 	{
@@ -566,3 +590,66 @@ void ProjectionThread::swapBuffers()
 	// イベントを取り出す
 	glfwPollEvents();
 }
+
+//動画再生用
+void ProjectionThread::updateMovieTexture()
+{
+	frame_count++;
+
+	capture >> movie_image;
+
+	//cv::Mat img;
+	//capture >> img;
+
+	if( frame_count == capture.get(CV_CAP_PROP_FRAME_COUNT) - 1 )
+	{
+		capture.set(CV_CAP_PROP_POS_MSEC, 0.0);
+		frame_count = 0;
+	}
+
+
+	//// アルファ値の設定
+	//cv::Mat alpha(cv::Size(capture.get(CV_CAP_PROP_FRAME_WIDTH ),capture.get(CV_CAP_PROP_FRAME_HEIGHT )),CV_8UC1);
+	//for(int y = 0 ; y < alpha.rows; y++){
+	//	for(int x = 0 ; x < alpha.cols; x++){
+	//		if(img.data[y * img.step + x * img.elemSize() + 0] < 40 &&
+	//			img.data[y * img.step + x * img.elemSize() + 1] < 40 &&
+	//			img.data[y * img.step + x * img.elemSize() + 2] < 40){
+	//				img.data[y * img.step + x * img.elemSize() + 0] = 255;
+	//				img.data[y * img.step + x * img.elemSize() + 1] = 255;
+	//				img.data[y * img.step + x * img.elemSize() + 2] = 255;
+	//			alpha.data[y * alpha.step + x * alpha.elemSize()] = 0;
+	//		}else
+	//			alpha.data[y * alpha.step + x * alpha.elemSize()] = 200;
+	//	}
+	//}
+
+
+	//std::vector<cv::Mat> mv;
+	//mv.push_back(img);
+	//mv.push_back(alpha);
+	//// チャンネルの合成
+	//cv::merge(mv, movie_image);
+	//	
+	//cv::flip(movie_image,movie_image,0);
+
+}
+
+//動画再読み込み
+void ProjectionThread::reloadMovie()
+{
+	if(capture.isOpened()) capture.release();
+	std::string movieFileName_str = critical_section->movieFileName;
+	capture.open(movieFileName_str);
+}
+
+void ProjectionThread::exChangeTexture(int model_id, cv::Mat m_image)
+{
+	mesh.exChangeTexture(model_id, m_image);
+}
+
+void ProjectionThread::setDefaultTexture(int model_id)
+{
+	mesh.setDefaultTexture(model_id);
+}
+

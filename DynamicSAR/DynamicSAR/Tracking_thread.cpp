@@ -481,7 +481,8 @@ void TrackingThread::estimateCorrespondence()
 				// 入力画像のエッジの勾配方向と3Dモデルの法線の内積
 				float edge_dot = input_edge_x * model_normal_x + input_edge_y * model_normal_y;
 				// ノルムの積
-				float edge_norm = std::sqrtf((input_edge_x*input_edge_x + input_edge_y*input_edge_y) * (model_normal_x*model_normal_x + model_normal_y*model_normal_y));
+//				float edge_norm = std::sqrtf((input_edge_x*input_edge_x + input_edge_y*input_edge_y) * (model_normal_x*model_normal_x + model_normal_y*model_normal_y));
+				float edge_norm = std::sqrtf((input_edge_x*input_edge_x + input_edge_y*input_edge_y)) * std::sqrtf((model_normal_x*model_normal_x + model_normal_y*model_normal_y));
 				// コサイン類似度
 				float cos_theta = edge_dot / edge_norm;
 

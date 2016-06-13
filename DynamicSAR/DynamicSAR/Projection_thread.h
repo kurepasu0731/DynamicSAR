@@ -73,6 +73,9 @@ public:
 		: Window( width, height, title)
 		, calib_able_flag (false)
 		, lightPower(0.7f)
+		, frame_count(0)
+		, modelID(0)
+		, original_fixed_flag(false)
 	{
 		// デバイスの受け渡し
 		irCamDev = cameraDevice;
@@ -114,6 +117,10 @@ public:
 
 		// インスタンスのthisポインタを記録
 		glfwSetWindowUserPointer(window, this);
+
+		// 動画テクスチャ初期処理
+		FILENAME = "movie.avi";
+		capture.open(FILENAME);
 	}
 
 	// デストラクタ
@@ -143,7 +150,15 @@ public:
 	// カラーバッファを入れ替えてイベントを取り出す
 	void swapBuffers();
 
+	//動画フレームの更新
+	void updateMovieTexture();
+	//動画再読み込み
+	void reloadMovie();
+	//モデルテクスチャ画像の更新
+	void exChangeTexture(int model_id, cv::Mat m_image); 
 
+	//デフォルトのテクスチャに戻す
+	void setDefaultTexture(int model_ID);
 
 	/***** メンバ変数 *****/
 
@@ -202,6 +217,15 @@ public:
 
 	///// スレッド間の共有クラス用 //////
 	CriticalSection* critical_section;
+
+	/***** 動画テクスチャ用 *****/
+	std::string FILENAME;						//!< 動画ファイル名
+	cv::Mat movie_image;						//!< 動画
+	double frame_count;							//!< 動画のフレーム数
+	cv::VideoCapture capture;					//!< 動画を開く
+	int modelID;								//!< ターゲットモデル番号
+	bool original_fixed_flag;					//!< 投影用モデルのテクスチャがオリジナルのものかどうか
+
 };
 
 

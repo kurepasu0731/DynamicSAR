@@ -8,7 +8,6 @@
 #include <boost/thread.hpp>
 #include <boost/atomic.hpp>
 
-
 #include <gl/glew.h>
 #include <GLFW/glfw3.h>
 
@@ -158,6 +157,13 @@ public:
 		TwAddVarRW(trackingGUI, "tracking time", TW_TYPE_DOUBLE, &trackingTime, "min=0.0 max=1000.0 step=1.0");
 		TwAddVarRW(trackingGUI, "System delay time", TW_TYPE_DOUBLE, &delayTime, "min=0.0 max=1000.0 step=1.0");
 
+		//動画用GUI
+		movieGUI = TwNewBar("Movie");
+		TwDefine(" Movie position ='430 460' size='200 140' color='101 50 200' ");
+		TwAddVarRW(movieGUI, "play movie", TW_TYPE_BOOLCPP, &critical_section->movie_flag, NULL);
+		TwAddVarRW(movieGUI, "movie file name", TW_TYPE_CDSTRING, &critical_section->movieFileName, NULL);
+		TwAddVarRW(movieGUI, "reload", TW_TYPE_BOOLCPP, &critical_section->reloadMovie_flag, NULL);
+
 		// 照明の初期位置
 		lightPos = glm::vec3(0.0, 0.0, 1.0);
 
@@ -184,6 +190,7 @@ public:
 
 		// インスタンスのthisポインタを記録
 		glfwSetWindowUserPointer(window, this);
+
 	}
 
 	// デストラクタ
@@ -241,6 +248,7 @@ public:
 	static void TW_CALL SetDetectParamCB(void* clientData);
 	static void TW_CALL SetTrackingParamCB(void* clientData);
 
+
 	/***** メンバ変数 *****/
 
 	///// GUI用 /////
@@ -248,6 +256,7 @@ public:
 	TwBar *calibGUI;				
 	TwBar *detectGUI;	
 	TwBar *trackingGUI;	
+	TwBar *movieGUI;	
 
 
 
@@ -344,6 +353,8 @@ public:
 	float edge_th2;						// エッジの閾値2
 	double trackingTime;				// 追跡処理時間
 	double delayTime;					// システム遅延時間
+
+
 };
 
 

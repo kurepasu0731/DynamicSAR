@@ -74,6 +74,7 @@ void MainThread::display()
 	// カメラと照明の位置を合わせる
 	lightPos = camera.eyePosition;
 
+
 	// 検出時
 	if (detection_flag || (critical_section->detect_tracking_flag && !critical_section->tracking_success_flag))
 	{
@@ -86,7 +87,7 @@ void MainThread::display()
 			draw_detectPose(detectPose[i]);
 		}
 	}
-	else //トラッキング時?
+	else 
 	{
 		// モデルの描画
 		draw_model();
