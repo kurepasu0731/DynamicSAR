@@ -297,9 +297,9 @@ public:
 	boost::atomic<bool> compensation_delay_flag;	// 遅延補償フラグ
 
 	// 動画
-	boost::atomic<bool> movie_flag;		//動画再生するしない
+	boost::atomic<bool> movie_flag;				//動画再生する/しない
 	boost::atomic<const char*> movieFileName;	//動画ファイル場所
-	boost::atomic<bool> reloadMovie_flag;	//動画の再読み込みするしない
+	boost::atomic<bool> reloadMovie_flag;		//動画の再読み込みする/しない
 
 private:
 

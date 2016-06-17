@@ -69,13 +69,14 @@ class ProjectionThread : public Window
 
 public:
 	// コンストラクタ
-	ProjectionThread(CriticalSection *cs, CamDev::CameraLinkCamera *cameraDevice, CamDev::Camera *RGBcameraDevice = NULL, bool _use_chessboard=false, int _cornerCol=4, int _cornerRow=11, float _cornerInterval_m=0.0225f, double _delay=80.0, std::string _saveCalibFolder=".", int width=640, int height=480, const char *title = "Projection")
+	ProjectionThread(CriticalSection *cs, CamDev::CameraLinkCamera *cameraDevice, CamDev::Camera *RGBcameraDevice = NULL, bool _use_chessboard=false, int _cornerCol=4, int _cornerRow=11, float _cornerInterval_m=0.0225f, double _delay=80.0, std::string _saveCalibFolder=".", int width=640, int height=480, std::string mFileName = "movie.avi", const char *title = "Projection")
 		: Window( width, height, title)
 		, calib_able_flag (false)
 		, lightPower(0.7f)
 		, frame_count(0)
 		, modelID(0)
 		, original_fixed_flag(false)
+		, FILENAME(mFileName)
 	{
 		// デバイスの受け渡し
 		irCamDev = cameraDevice;
@@ -119,7 +120,6 @@ public:
 		glfwSetWindowUserPointer(window, this);
 
 		// 動画テクスチャ初期処理
-		FILENAME = "movie.avi";
 		capture.open(FILENAME);
 	}
 
@@ -150,15 +150,25 @@ public:
 	// カラーバッファを入れ替えてイベントを取り出す
 	void swapBuffers();
 
-	//動画フレームの更新
-	void updateMovieTexture();
+	//////////動画関連//////////
+	//動画再生
+	void playMovie();
+
+	//動画停止
+	void stopMovie();
+
 	//動画再読み込み
-	void reloadMovie();
-	//モデルテクスチャ画像の更新
+	void reloadMovie(const std::string mFileName);
+
+	//動画を1フレーム分読み込む
+	void updateMovieFrame();
+
+	//モデルテクスチャ画像の変更
 	void exChangeTexture(int model_id, cv::Mat m_image); 
 
 	//デフォルトのテクスチャに戻す
 	void setDefaultTexture(int model_ID);
+	//////////動画関連//////////
 
 	/***** メンバ変数 *****/
 
@@ -218,13 +228,13 @@ public:
 	///// スレッド間の共有クラス用 //////
 	CriticalSection* critical_section;
 
-	/***** 動画テクスチャ用 *****/
-	std::string FILENAME;						//!< 動画ファイル名
-	cv::Mat movie_image;						//!< 動画
-	double frame_count;							//!< 動画のフレーム数
-	cv::VideoCapture capture;					//!< 動画を開く
-	int modelID;								//!< ターゲットモデル番号
-	bool original_fixed_flag;					//!< 投影用モデルのテクスチャがオリジナルのものかどうか
+	//////////動画関連//////////
+	std::string FILENAME;						//! 動画ファイル名
+	cv::Mat movie_image;						//! 動画
+	double frame_count;							//! 動画のフレーム数
+	cv::VideoCapture capture;					//! 動画を開く
+	int modelID;								//! ターゲットモデル番号
+	bool original_fixed_flag;					//! 投影用モデルのテクスチャがオリジナルのものかどうか
 
 };
 

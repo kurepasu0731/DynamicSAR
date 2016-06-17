@@ -90,8 +90,8 @@ void ProjectionThread::display()
 	//*****↓動画再生処理↓******//
 	if( capture.isOpened() && critical_section->movie_flag)
 	{
-		// 動画テクスチャ更新
-		updateMovieTexture();
+		// 動画の読み込み
+		updateMovieFrame();
 		//テクスチャの更新
 		exChangeTexture(modelID, movie_image);
 
@@ -106,7 +106,8 @@ void ProjectionThread::display()
 	//新しいファイルを指定して再読み込みしたい場合
 	if(critical_section->reloadMovie_flag)
 	{
-		reloadMovie();
+		std::string movieFileName_str = critical_section->movieFileName;
+		reloadMovie(movieFileName_str);
 		critical_section->reloadMovie_flag = false;
 	}
 	//*****↑動画再生処理↑******//
@@ -591,8 +592,13 @@ void ProjectionThread::swapBuffers()
 	glfwPollEvents();
 }
 
-//動画再生用
-void ProjectionThread::updateMovieTexture()
+
+
+/**
+ * @brief  動画を1フレーム分読み込む
+ * 
+ */
+void ProjectionThread::updateMovieFrame()
 {
 	frame_count++;
 
@@ -635,19 +641,45 @@ void ProjectionThread::updateMovieTexture()
 
 }
 
-//動画再読み込み
-void ProjectionThread::reloadMovie()
+/**
+ * @brief  動画の再生
+ * 
+ */
+void ProjectionThread::playMovie(){ critical_section->movie_flag = true; }
+
+/**
+ * @brief  動画の停止
+ * 
+ */
+void ProjectionThread::stopMovie(){ critical_section->movie_flag = false; }
+
+/**
+ * @brief  動画の再読み込み
+ *
+ * @param	mFileName[in]		動画ファイル名
+ */
+void ProjectionThread::reloadMovie(const std::string mFileName)
 {
 	if(capture.isOpened()) capture.release();
-	std::string movieFileName_str = critical_section->movieFileName;
-	capture.open(movieFileName_str);
+	capture.open(mFileName);
 }
 
+/**
+ * @brief  テクスチャの変更
+ *
+ * @param	model_ID[in]		モデルID
+ * @param	m_image[in]			テクスチャ画像
+ */
 void ProjectionThread::exChangeTexture(int model_id, cv::Mat m_image)
 {
 	mesh.exChangeTexture(model_id, m_image);
 }
 
+/**
+ * @brief  デフォルトのテクスチャに戻す
+ *
+ * @param	model_ID[in]		モデルID
+ */
 void ProjectionThread::setDefaultTexture(int model_id)
 {
 	mesh.setDefaultTexture(model_id);
