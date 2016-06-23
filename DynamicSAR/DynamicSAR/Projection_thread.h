@@ -154,11 +154,14 @@ public:
 	//動画再生
 	void playMovie();
 
-	//動画停止
+	//動画停止(一時停止含む)
 	void stopMovie();
 
 	//動画再読み込み
 	void reloadMovie(const std::string mFileName);
+
+	//現在のフレーム数取得
+	int getCurrentFrameCount();
 
 	//動画を1フレーム分読み込む
 	void updateMovieFrame();
@@ -231,7 +234,7 @@ public:
 	//////////動画関連//////////
 	std::string FILENAME;						//! 動画ファイル名
 	cv::Mat movie_image;						//! 動画
-	double frame_count;							//! 動画のフレーム数
+	int frame_count;							//! 動画のフレーム数
 	cv::VideoCapture capture;					//! 動画を開く
 	int modelID;								//! ターゲットモデル番号
 	bool original_fixed_flag;					//! 投影用モデルのテクスチャがオリジナルのものかどうか

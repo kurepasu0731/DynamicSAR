@@ -665,6 +665,17 @@ void ProjectionThread::reloadMovie(const std::string mFileName)
 }
 
 /**
+ * @breaf　現在のフレームNoを返す
+ *
+ * @return 現在のフレームNo
+ *
+ */
+int ProjectionThread::getCurrentFrameCount()
+{
+	return frame_count;
+}
+
+/**
  * @brief  テクスチャの変更
  *
  * @param	model_ID[in]		モデルID
