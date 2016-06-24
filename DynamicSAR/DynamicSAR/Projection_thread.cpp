@@ -97,12 +97,16 @@ void ProjectionThread::display()
 
 		original_fixed_flag = false;
 	}
-	//動画再生しない、かつまだオリジナルのテクスチャに戻ってなかったら
-	else if(!critical_section->movie_flag && !original_fixed_flag)
-	{
-		setDefaultTexture(modelID);
-		original_fixed_flag = true;
-	}
+	//****************************************************************************************//
+	//**動画を停止した時に自動的にデフォルトのテクスチャに戻すときはこのコメントアウトを外す**//
+	//****************************************************************************************//
+	////動画再生しない、かつまだオリジナルのテクスチャに戻ってなかったら
+	//else if(!critical_section->movie_flag && !original_fixed_flag)
+	//{
+	//	setDefaultTexture(modelID);
+	//	original_fixed_flag = true;
+	//}
+	//***************************************************************************************//
 	//新しいファイルを指定して再読み込みしたい場合
 	if(critical_section->reloadMovie_flag)
 	{

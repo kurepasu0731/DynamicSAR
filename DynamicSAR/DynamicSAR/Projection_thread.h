@@ -163,14 +163,15 @@ public:
 	//現在のフレーム数取得
 	int getCurrentFrameCount();
 
+	//デフォルトのテクスチャに戻す
+	void setDefaultTexture(int model_ID);
+
 	//動画を1フレーム分読み込む
 	void updateMovieFrame();
 
 	//モデルテクスチャ画像の変更
 	void exChangeTexture(int model_id, cv::Mat m_image); 
 
-	//デフォルトのテクスチャに戻す
-	void setDefaultTexture(int model_ID);
 	//////////動画関連//////////
 
 	/***** メンバ変数 *****/
