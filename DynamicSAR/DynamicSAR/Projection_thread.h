@@ -69,14 +69,17 @@ class ProjectionThread : public Window
 
 public:
 	// コンストラクタ
+	//**written by fujisawa****************************************************************************//
 	ProjectionThread(CriticalSection *cs, CamDev::CameraLinkCamera *cameraDevice, CamDev::Camera *RGBcameraDevice = NULL, bool _use_chessboard=false, int _cornerCol=4, int _cornerRow=11, float _cornerInterval_m=0.0225f, double _delay=80.0, std::string _saveCalibFolder=".", int width=640, int height=480, std::string mFileName = "movie.avi", const char *title = "Projection")
 		: Window( width, height, title)
 		, calib_able_flag (false)
 		, lightPower(0.7f)
+		//**written by fujisawa*******//
 		, frame_count(0)
 		, modelID(0)
 		, original_fixed_flag(false)
 		, FILENAME(mFileName)
+		//****************************//
 	{
 		// デバイスの受け渡し
 		irCamDev = cameraDevice;
@@ -119,8 +122,10 @@ public:
 		// インスタンスのthisポインタを記録
 		glfwSetWindowUserPointer(window, this);
 
+		//**written by fujisawa*******//
 		// 動画テクスチャ初期処理
 		capture.open(FILENAME);
+		//****************************//
 	}
 
 	// デストラクタ
@@ -150,6 +155,7 @@ public:
 	// カラーバッファを入れ替えてイベントを取り出す
 	void swapBuffers();
 
+	//**written by fujisawa***************************************//
 	//////////動画関連//////////
 	//動画再生
 	void playMovie();
@@ -164,7 +170,10 @@ public:
 	int getCurrentFrameCount();
 
 	//デフォルトのテクスチャに戻す
-	void setDefaultTexture(int model_ID);
+	void setDefaultTexture(int model_id);
+
+	//テクスチャ画像の変更
+	void setTexture(int model_id, std::string fileName);
 
 	//動画を1フレーム分読み込む
 	void updateMovieFrame();
@@ -173,6 +182,7 @@ public:
 	void exChangeTexture(int model_id, cv::Mat m_image); 
 
 	//////////動画関連//////////
+	//***********************************************************//
 
 	/***** メンバ変数 *****/
 
@@ -232,6 +242,7 @@ public:
 	///// スレッド間の共有クラス用 //////
 	CriticalSection* critical_section;
 
+	//**written by fujisawa***************************************//
 	//////////動画関連//////////
 	std::string FILENAME;						//! 動画ファイル名
 	cv::Mat movie_image;						//! 動画
@@ -239,6 +250,7 @@ public:
 	cv::VideoCapture capture;					//! 動画を開く
 	int modelID;								//! ターゲットモデル番号
 	bool original_fixed_flag;					//! 投影用モデルのテクスチャがオリジナルのものかどうか
+	//***********************************************************//
 
 };
 

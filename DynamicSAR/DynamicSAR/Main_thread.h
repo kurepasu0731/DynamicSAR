@@ -157,12 +157,14 @@ public:
 		TwAddVarRW(trackingGUI, "tracking time", TW_TYPE_DOUBLE, &trackingTime, "min=0.0 max=1000.0 step=1.0");
 		TwAddVarRW(trackingGUI, "System delay time", TW_TYPE_DOUBLE, &delayTime, "min=0.0 max=1000.0 step=1.0");
 
+		//**written by fujisawa****************************************************************************//
 		//ìÆâÊópGUI
 		movieGUI = TwNewBar("Movie");
 		TwDefine(" Movie position ='430 460' size='200 140' color='101 50 200' ");
 		TwAddVarRW(movieGUI, "play movie", TW_TYPE_BOOLCPP, &critical_section->movie_flag, NULL);
 		TwAddVarRW(movieGUI, "movie file name", TW_TYPE_CDSTRING, &critical_section->movieFileName, NULL);
 		TwAddVarRW(movieGUI, "reload", TW_TYPE_BOOLCPP, &critical_section->reloadMovie_flag, NULL);
+		//*************************************************************************************************//
 
 		// è∆ñæÇÃèâä˙à íu
 		lightPos = glm::vec3(0.0, 0.0, 1.0);
@@ -256,6 +258,7 @@ public:
 	TwBar *calibGUI;				
 	TwBar *detectGUI;	
 	TwBar *trackingGUI;	
+	//**written by fujisawa**//
 	TwBar *movieGUI;	
 
 

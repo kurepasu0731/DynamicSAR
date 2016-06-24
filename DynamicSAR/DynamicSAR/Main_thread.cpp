@@ -223,7 +223,9 @@ void MainThread::createProjectionThread()
 
 	// 枠無し描画
 	glfwWindowHint(GLFW_DECORATED, GL_FALSE);
+	//**written by fujisawa**********************************************************************//
 	ProjectionThread proj_thread(critical_section.get(), irCamDev, rgbCamDev, use_chessboard, cornerCol, cornerRow, cornerInterval_m, graycode_delay, saveCalibFolder, di.width, di.height, "movie.avi");
+	//*******************************************************************************************//
 	glfwSetWindowPos(proj_thread.getWindowID(), di.x, di.y);	// ウィンドウ位置
 	glfwWindowHint(GLFW_DECORATED, GL_TRUE);
 

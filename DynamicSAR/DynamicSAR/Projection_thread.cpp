@@ -86,7 +86,7 @@ void ProjectionThread::init(const std::string& modelFile)
  */
 void ProjectionThread::display()
 {
-
+	//**written by fujisawa****************************************************************************//
 	//*****↓動画再生処理↓******//
 	if( capture.isOpened() && critical_section->movie_flag)
 	{
@@ -115,6 +115,8 @@ void ProjectionThread::display()
 		critical_section->reloadMovie_flag = false;
 	}
 	//*****↑動画再生処理↑******//
+	//*************************************************************************************************//
+
 
 	///// グレイコード投影 /////
 	if (critical_section->graycode_flag)
@@ -596,7 +598,7 @@ void ProjectionThread::swapBuffers()
 	glfwPollEvents();
 }
 
-
+//**written by fujisawa****************************************************************************//
 
 /**
  * @brief  動画を1フレーム分読み込む
@@ -701,3 +703,14 @@ void ProjectionThread::setDefaultTexture(int model_id)
 	original_fixed_flag = true;
 }
 
+/**
+ * @brief  テクスチャ画像を変更する
+ *
+ * @param	model_ID[in]		モデルID
+ * @param	fileName[in]		画像ファイル名
+ */
+void ProjectionThread::setTexture(int model_id, std::string fileName)
+{
+	mesh.setTexture(model_id, fileName);
+}
+//***********************************************************************************************//
