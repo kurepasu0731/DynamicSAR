@@ -104,7 +104,7 @@ void ProjectionThread::display()
 	//else if(!critical_section->movie_flag && !original_fixed_flag)
 	//{
 	//	setDefaultTexture(modelID);
-	//	original_fixed_flag = true;
+	//	//original_fixed_flag = true;
 	//}
 	//***************************************************************************************//
 	//新しいファイルを指定して再読み込みしたい場合
@@ -698,5 +698,6 @@ void ProjectionThread::exChangeTexture(int model_id, cv::Mat m_image)
 void ProjectionThread::setDefaultTexture(int model_id)
 {
 	mesh.setDefaultTexture(model_id);
+	original_fixed_flag = true;
 }
 
