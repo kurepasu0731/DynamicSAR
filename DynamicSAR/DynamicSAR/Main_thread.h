@@ -164,6 +164,7 @@ public:
 		TwAddVarRW(movieGUI, "play movie", TW_TYPE_BOOLCPP, &critical_section->movie_flag, NULL);
 		TwAddVarRW(movieGUI, "movie file name", TW_TYPE_CDSTRING, &critical_section->movieFileName, NULL);
 		TwAddVarRW(movieGUI, "reload", TW_TYPE_BOOLCPP, &critical_section->reloadMovie_flag, NULL);
+		//TwAddVarRW(movieGUI, "texture file name", TW_TYPE_CDSTRING, &critical_section->textureFileName, NULL); //Debug—p
 		//*************************************************************************************************//
 
 		// Æ–¾‚Ì‰ŠúˆÊ’u

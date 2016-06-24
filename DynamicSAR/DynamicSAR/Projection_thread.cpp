@@ -112,6 +112,9 @@ void ProjectionThread::display()
 	{
 		std::string movieFileName_str = critical_section->movieFileName;
 		reloadMovie(movieFileName_str);
+		//Debug—p
+		//std::string textureFileName_str = critical_section->textureFileName;
+		//setTexture(modelID, textureFileName_str);
 		critical_section->reloadMovie_flag = false;
 	}
 	//*****ª“®‰æÄ¶ˆ—ª******//
@@ -668,6 +671,7 @@ void ProjectionThread::reloadMovie(const std::string mFileName)
 {
 	if(capture.isOpened()) capture.release();
 	capture.open(mFileName);
+	frame_count = 0;
 }
 
 /**

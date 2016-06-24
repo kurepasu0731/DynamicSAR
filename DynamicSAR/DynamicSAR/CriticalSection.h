@@ -56,6 +56,7 @@ public:
 		, movie_flag(false)
 		, movieFileName("movie02.avi")
 		, reloadMovie_flag(false)
+		//, textureFileName("test.png") //Debug用
 		//***********************//
 
 	{}
@@ -304,6 +305,7 @@ public:
 	boost::atomic<bool> movie_flag;				//動画再生する/しない
 	boost::atomic<const char*> movieFileName;	//動画ファイル場所
 	boost::atomic<bool> reloadMovie_flag;		//動画の再読み込みする/しない
+	//boost::atomic<const char*> textureFileName; //チェンジするテクスチャファイル場所 //Debug用
 	//************************************************************************//
 
 private:

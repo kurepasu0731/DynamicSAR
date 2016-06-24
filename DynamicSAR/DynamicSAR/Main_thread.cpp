@@ -237,6 +237,8 @@ void MainThread::createProjectionThread()
 	{
 		// •`‰æ
 		proj_thread.display();
+
+		//std::cout << "frame No." << proj_thread.getCurrentFrameCount() << std::endl; //Debug—p
 	}
 }
 
